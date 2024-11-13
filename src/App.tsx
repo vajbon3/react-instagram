@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import FeedPage from "./Pages/FeedPage";
+import Navbar from "./Components/Navbar";
+import ProfilePage from "./Pages/ProfilePage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="">
+            <Navbar/>
+            <div className="mt-[120px] p-4 -z-10 flex flex-col items-center">
+                <Routes>
+                    <Route path="/" element={<FeedPage/>}/>
+                    <Route path="/profile/:username" element={<ProfilePage/>}/>
+                </Routes>
+            </div>
+        </div>
+    );
 }
 
 export default App;
